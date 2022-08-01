@@ -1,21 +1,16 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import styled from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <GlobalStyles />
-      <div>
-        <Switch>
-          <Route exact path="/">
-            Homepage
-          </Route>
-          <Route path="/page-1">Page 1</Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <GlobalStyles />
+            <Routes>
+                <Route path="/" element={<h1>Homepage</h1>} />
+                <Route path="/page-1" element={<h1>Page 1</h1>} />
+            </Routes>
+        </BrowserRouter>
+    );
 };
 
 export default App;
