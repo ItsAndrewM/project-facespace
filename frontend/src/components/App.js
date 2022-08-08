@@ -7,7 +7,7 @@ const App = () => {
             <GlobalStyles />
             <Routes>
                 <Route path="/" element={<h1>Homepage</h1>} />
-                <Route path="/page-1" element={<h1>Page 1</h1>} />
+                <Route path="/signin" element={<h1>Sign in page</h1>} />
             </Routes>
         </BrowserRouter>
     );

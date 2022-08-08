@@ -2,13 +2,17 @@
 
 ## Goal
 
-Create a site that will serve up Facespace! Oh, and learn a little more about React, routing, Node and CSS along the way.
+A brand new social media website called Facespace!
+
+---
 
 ## Setup
 
 This repository contains a frontend and a backend folder. This means that each folder is a complete environment (`package.json`, `/node_modules`). They are completely independent. You cannot reference code from one environment in the other environment.
 
 Generally speaking, the frontend will query the backend via calls to the server endpoints.
+
+---
 
 ### The Frontend
 
@@ -25,6 +29,8 @@ Use `yarn dev:frontend` to start the frontend dev environment.
 3. Type `yarn install`
 
 Use `yarn dev:backend` to start the backend dev environment.
+
+---
 
 ## File Structure
 
@@ -54,6 +60,8 @@ Use `yarn dev:backend` to start the backend dev environment.
 └── README.md (this file)
 ```
 
+---
+
 ## About the Data
 
 There is a file `backend/data/users.js` that contains an array of `user`s. Each user looks like this.
@@ -69,17 +77,21 @@ There is a file `backend/data/users.js` that contains an array of `user`s. Each 
 
 ---
 
-## The Project
+## The Mini-Project
 
-Even though this is a workshop, it is described as a _mini-project_ because it does not come with all of the guidance and step-by-step help that is usually provided in a workshop.
+Even though this is a **workshop**, it is described as a _mini-project_ because it does not come with all of the guidance and step-by-step help that is usually provided in a workshop.
 
 We do provide you with a lot of stuff from the start but it will require becoming familiar with the code.
 
-### The Backend (server)
+---
+
+## The Backend (server)
 
 The server is mostly done. It is functional and will reliably provide your FE with the `req`uested data as long as the the requests are made in a way that the server expects.
 
 For more information on querying the server and what responses from the server will look like, read the [API_doc](backend/API_doc.md).
+
+---
 
 ## The Design
 
@@ -114,21 +126,43 @@ The entire build of the FE is up to you.
 
 <img src="./_screenshots/homepage_3.png" />
 
+---
+
 ### The Profile Page
 
 <img src="./_screenshots/profile_3.png" />
+
+The friends on the profile page should:
+- Be clickable and take you to each person's profile.
+- Have their pictures loaded correctly. 
+    - **HINT: The `Promise.all()` method might help here (you can find it in exercise 4 of the promises workshop).**
+
+---
 
 ### The Sign in page
 
 <img src="./_screenshots/signin_2.png" />
 
-> Wouldn't it be nice to have a way to validate who was signing in?
+The sign in page needs to:
+- Show an error if the username is not valid.
+- Store the logged in user in `sessionStorage` if the login was successful.
+- Redirect to the homepage if the login was successful.
 
-> Wouldn't it also be nice for the website to redirect you to the home page when you've signed in?
+---
 
-### A link to the signin page in the header
+### No Sign in for you!
 
-We should have a link to the signin page in the header.
+If someone is already signed in, they should not be able to see the sign in page. Prevent this from happening by redirecting them to the home page if they try to navigate to the sign in page.
+
+Make use of the information in `sessionStorage` to detect if the user is signed in or not.
+
+> **HINT: You'll want to make your state persistant! 😉**
+
+---
+
+### A link to the sign in page in the header
+
+We should have a link to the sign in page in the header.
 
 <img src="./_screenshots/signin_button.png" />
 
@@ -138,6 +172,8 @@ When the user is signed in, the "sign in" link should be replaced by a greeting 
 
 While you're in the header, it would be good to turn the title into a link to the homepage.
 
+---
+
 ### Faces on the homepage
 
 - Faces on the homepage should link to that person's profile page.
@@ -145,29 +181,24 @@ While you're in the header, it would be good to turn the title into a link to th
 
 <img src="./_screenshots/home-links.gif" />
 
+---
+
 ### My Friends!
 
 When a user is signed in and looking at the homepage, it would be great if there were some visual indication as to who their friends are in the grid of faces. My example is a ribbon on the image, but feel free to do whatever you like.
 
 <img src="./_screenshots/homepage_4.png" />
 
-### No Sign in for you!
-
-If someone is already signed in, they should not be able to see the signin page. Prevent this from happening.
-
-> Hint: redirect the user to the home page if they are signed in.
-
-### Recommended strategy:
-
-Make use of `sessionStorage` as a signed in state for your user.
+---
 
 ### Stretch Goals
 
 Here are some other features that you could add to the app.
 
-- Users can sign out
+- Pick a theme! Switch it up with characters from a show, book, or game! 
+- The orange is kind of gross.
+- Users can sign out.
 - User can add/remove friends. _This should update the friends array of both users. Being friends is reciprocal._
 - If a user adds a friend, they are not automatically added. The other user needs to accept this first. _It would be useful to create a new array of `pendingFriends` in the user object._
 - A sign up page... that does exactly what you would expect.
-- Don't like the orange theme, change it. Flex your CSS muscles!!
 - What else can you think of?
