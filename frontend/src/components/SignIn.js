@@ -36,12 +36,14 @@ const SignIn = () => {
                 navigate("/");
             }
             if (data.status === 404) {
-                window.alert("Log in failed, please try again.")
-                sessionStorage.clear()
-                ref.current.value = "";
+                throw new Error;
+
             }
         })
         .catch((error) => {
+            window.alert("Log in failed, please try again.")
+            sessionStorage.clear()
+            ref.current.value = "";
             return error;
         });
     };
