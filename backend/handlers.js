@@ -2,6 +2,23 @@ const { findUser, findUserIndex, sendResponse } = require("./utils");
 
 const users = require("./data/users.json");
 
+const authenticateSignin = (req, res) => {
+    const {data} = req.body;
+    const loggedInUser = [];
+    for (let i = 0; i < users.length; i++) {
+        if (users[i].name.toLowerCase().includes(data.name.toLowerCase())) {
+            loggedInUser.push(users[i]);
+        }
+    }
+    if (loggedInUser.length !== 0) {
+        console.log(loggedInUser);
+        return sendResponse(res, 200, loggedInUser);
+    }
+    else {
+        return sendResponse(res, 404, null, "user not found");
+    }
+}
+
 // GET all users
 const getUsers = (req, res) => {
     const activeUsers = users.filter((user) => !user.deleted);
@@ -109,4 +126,5 @@ module.exports = {
     getUserById,
     handleFriends,
     updateUser,
+    authenticateSignin,
 };
