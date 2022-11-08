@@ -8,6 +8,7 @@ const {
   getUserById,
   handleFriends,
   updateUser,
+  authenticateSignin,
 } = require("./handlers");
 
 const app = express();
@@ -22,6 +23,7 @@ app.put("/api/users", updateUser);
 app.get("/api/users/:id", getUserById);
 app.delete("/api/users/:id", deleteUser);
 app.patch("/api/friends", handleFriends);
+app.post("/api/signin", authenticateSignin)
 
 // this is our catch all endpoint.
 app.get("*", (req, res) => {
