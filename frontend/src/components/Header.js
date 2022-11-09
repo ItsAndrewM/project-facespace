@@ -1,7 +1,14 @@
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { UsersContext } from "./UserContext";
 
-const Header = () => {    
+const Header = () => {
+    const {state} = useContext(UsersContext)
+    useEffect(() => {
+        console.log(state)
+    }, [state])
+
     return (
         <HeaderBar>
             <NavItem to="/"><HeaderText>Facespace</HeaderText></NavItem>

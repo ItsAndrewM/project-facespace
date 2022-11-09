@@ -11,7 +11,6 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
-    console.log(state)
     switch (action.type) {
         case "user-logged-in": {
             return {

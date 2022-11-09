@@ -36,7 +36,7 @@ const SignIn = () => {
                 navigate("/");
             }
             if (data.status === 404) {
-                throw new Error;
+                throw new Error("Error");
 
             }
         })
